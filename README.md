@@ -9,10 +9,11 @@ Checkout CLI project, `cd` into project directory and then make the `todos.rb` f
 `$ chmod +x my_cli_app.rb`
 
 Now you can run CLI application:
-$ ./todos.rb
+`$ ./todos.rb`
 
 If you do not have ruby interpreter set under `/usr/bin/env` directory, you can directly run as:
-$ ruby todos.rb
+
+`$ ruby todos.rb`
 
 
 result:

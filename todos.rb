@@ -1,4 +1,4 @@
-#!/Users/nilay/.rvm/rubies/ruby-3.3.0/bin/ruby
+#!/usr/bin/env/ruby
 require 'net/http'
 require 'open-uri'
 require 'json'
