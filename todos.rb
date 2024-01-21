@@ -9,6 +9,14 @@ require 'yajl'            # load json in chunk
 TODOS_API_BASE_URL = 'https://jsonplaceholder.typicode.com'
 TODOS_TO_FETCH = 20
 
+def threaded_fetch
+  threads = []
+  (1..(TODOS_TO_FETCH * 2)).select(&:even?).each do |todo_index|
+    threads << Thread.new { yield JSON.parse(Net::HTTP.get(URI("#{TODOS_API_BASE_URL}/todos/#{todo_index}"))) }
+  end
+  threads.each(&:join)
+end
+
 # we are not using this method
 def stream_fetch
   io = URI.open("#{TODOS_API_BASE_URL}/todos")
@@ -17,6 +25,7 @@ def stream_fetch
   end
 end
 
+# we are not using this method too
 def http_fetch
   uri = URI(TODOS_API_BASE_URL)
   Net::HTTP.start(uri.hostname) do |http|
@@ -32,7 +41,7 @@ def main
     { key: :completed, title: 'Completed', size: 12, justify: :left }
   ]
   ConsoleTable.define(table_config) do |table|
-    http_fetch { |todo| table << { title: todo['title'], completed: todo['completed'] ? ' Yes'.green : ' No'.red} }
+    threaded_fetch { |todo| table << { title: todo['title'], completed: todo['completed'] ? ' Yes'.green : ' No'.red} }
   end
 end
 
