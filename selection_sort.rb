@@ -8,9 +8,10 @@ def selection_sort(array)
       end
     end
     array[i], array[mid_idx] = array[mid_idx], array[i]
+    p array
   end
   array
 end
 
-p selection_sort [3,1,6,2,9,0]
+# p selection_sort [3,1,6,2,9,0]
 

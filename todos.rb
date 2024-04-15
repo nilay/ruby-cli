@@ -41,12 +41,9 @@ def main
     { key: :completed, title: 'Completed', size: 12, justify: :left }
   ]
   ConsoleTable.define(table_config) do |table|
-    http_fetch { |todo| table << { title: todo['title'], completed: todo['completed'] ? ' Yes'.green : ' No'.red} }
+    threaded_fetch { |todo| table << { title: todo['title'], completed: todo['completed'] ? ' Yes'.green : ' No'.red} }
   end
 end
 
 # ensures that the main method is only called when the script is executed directly
 main if __FILE__ == $PROGRAM_NAME
-
-
-
