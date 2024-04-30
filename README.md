@@ -1,4 +1,4 @@
-# RUBY CLI Application 
+# RUBY CLI Application
 
 This simple CLI application prints first 20 even numbered todos when executed. The todos are being fetched from API.
 
@@ -15,6 +15,7 @@ If you do not have ruby interpreter set under `/usr/bin/env` directory, you can 
 
 `$ ruby todos.rb`
 
-
 result:
 ![alt text](https://github.com/nilay/ruby-cli/blob/main/screenshot.jpg?raw=true)
+
+feature1 line1
