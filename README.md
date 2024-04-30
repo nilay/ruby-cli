@@ -19,3 +19,4 @@ result:
 ![alt text](https://github.com/nilay/ruby-cli/blob/main/screenshot.jpg?raw=true)
 
 feature1 line1
+feature1 line2
