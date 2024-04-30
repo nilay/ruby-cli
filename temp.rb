@@ -1,0 +1,1 @@
+# forzen_string_literal: true
