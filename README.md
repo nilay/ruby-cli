@@ -23,3 +23,4 @@ feature1 line2
 feature1 line3
 feature1 line4
 main line5
+feature1 line5
